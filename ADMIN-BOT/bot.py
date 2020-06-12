@@ -25,10 +25,27 @@ async def ik(ctx):
 @bot.command()
 async def ku(ctx):
     await bot.change_presence(activity=discord.Game(name='更新中'))
+  
+@bot.command()
+async def kus(ctx):
+    await bot.change_presence(activity=discord.Game(name='更新の準備中'))
+
+@bot.command()
+async def tt(ctx):
+    await bot.change_presence(activity=discord.Game(name='テスト中'))
+
+@bot.command()
+async def de(ctx):
+    await bot.change_presence(activity=discord.Game(name='デバッグ中何回か落ちる可能性あり'))
 
 @bot.command()
 async def no(ctx):
     await bot.change_presence(activity=None)
+
+@bot.command()
+async def s(ctx):
+    for s in client.guilds:
+        print(s)
 
 
 @bot.event
@@ -44,7 +61,7 @@ async def on_message(message):
         embed.add_field(name="削除されたコメント(全文):", value= message.content, inline=False)  
         embed.add_field(name="違反したサーバー", value= message.guild, inline=True)
         embed.add_field(name="違反したチャンネル", value= message.channel, inline=True)
-        embed.add_field(name="その他", value="意図しないで削除された場合は管理者まで, inline=False)
+        embed.add_field(name="その他", value="意図しないで削除された場合浜で管理者までお願いします", inline=False)
         embed.add_field(name="違反した時間（UTC時間です日本時間は+９時間", value= message.created_at, inline=True)
                                                       
 
@@ -142,12 +159,13 @@ async def d(ctx):
         await ctx.send('うーーん次がありますよ')
         await ctx.send('再び実行する際は/dをお願いします')
 
-
+#さいしょに1000渡してそれを定義そこから1000-ｍでとれるかも・・・・/dしたら1000渡してスタートawaitで1000-ｍでおｋ・・・？
 
 @bot.command()
 async def em(ctx, a, b, c, d):
     embed=discord.Embed(title= a,description= b, color=0xdc0909)
     embed.add_field(name= c, value= d, inline=True)
+    await ctx.send(embed=embed)
 
 @em.error
 async def em_error(ctx, error):
@@ -168,7 +186,7 @@ async def he(ctx):
     embed.add_field(name= "```/k [足される数] [足す数]```", value= "足し算ができます", inline=False)
     embed.add_field(name= "```/h [引かれる数] [引く数]```", value= "引き算ができます", inline=False)
     embed.add_field(name= "```/k [掛ける数] [掛けられる数]```", value= "掛け算ができます", inline=False)
-    embed.add_field(name= "```/w [割られる数] [割る数]```", value= "割り算算ができます", inline=False)
+    embed.add_field(name= "```/w [割られる数] [割る数]```", value= "割り算ができます", inline=False)
     embed.add_field(name= "告知", value= "特になし", inline=False)
 
 
@@ -176,6 +194,9 @@ async def he(ctx):
 
       
     await ctx.send(embed=embed)
+
+
+
 
 
 
