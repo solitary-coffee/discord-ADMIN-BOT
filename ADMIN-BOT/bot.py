@@ -181,5 +181,5 @@ async def he(ctx):
 
 
            
-client.run("トークン")
+bot.run("トークン")
 
